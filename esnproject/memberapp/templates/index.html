@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if user.is_authenticated %}
+      <h1>Welcome {{ user.username | capfirst }}!</h1>
+      Here is you're profile page: <a href="{% url 'profile-page' user.pk %}">profile</a>
+  {% else %}
+  <h1>Finally you're here.. </h1>
+  Please <a href="{% url 'login'%}">login</a> for further options
+
+  {% endif %}
+{% endblock %}
